@@ -2,7 +2,6 @@
 {
     public static class StringCalculator
     {
-        //"//[***]\n1***2***3"
         public static int Add(string number)
         {
             if (string.IsNullOrEmpty(number)) return 0;
@@ -11,7 +10,6 @@
 
             if (number.StartsWith("//"))
             {
-
                 //Delimiter
                 string[] inputLines = number.Replace("//", "").Split('\n');
 
@@ -26,7 +24,7 @@
                 stringList = number.Split(delimiter).ToList();
             }
 
-            if(stringList.Any(a => Convert.ToInt32(a) < 0))
+            if (stringList.Any(a => Convert.ToInt32(a) < 0))
             {
                 string message = $"Negatives not allowed: {String.Join(", ", stringList.Where(a => Convert.ToInt32(a) < 0).Select(s => s))}";
                 throw new ArgumentException(message);
@@ -34,7 +32,7 @@
 
             stringList.RemoveAll(a => Convert.ToInt32(a) > 1000);
 
-            return stringList.Select(s=> Convert.ToInt32(s)).Sum(a=>a);
+            return stringList.Select(s => Convert.ToInt32(s)).Sum(a => a);
         }
     }
 }
