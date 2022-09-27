@@ -21,6 +21,7 @@
             }
             else
             {
+                //Delimiter
                 char[] delimiter = { ',', '\n' };
                 stringList = number.Split(delimiter).ToList();
             }
