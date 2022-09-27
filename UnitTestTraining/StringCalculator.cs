@@ -3,11 +3,11 @@
     public class StringCalculator
     {
         //"//[***]\n1***2***3"
-        public int Add(string number)
+        public static int Add(string number)
         {
             if (string.IsNullOrEmpty(number)) return 0;
 
-            List<string> stringList = new List<string>();
+            List<string> stringList;
 
             if (number.StartsWith("//"))
             {
@@ -26,7 +26,7 @@
                 stringList = number.Split(delimiter).ToList();
             }
 
-            if(stringList.Where(a=> Convert.ToInt32(a) < 0).Any())
+            if(stringList.Any(a => Convert.ToInt32(a) < 0))
             {
                 string message = $"Negatives not allowed: {String.Join(", ", stringList.Where(a => Convert.ToInt32(a) < 0).Select(s => s))}";
                 throw new ArgumentException(message);
