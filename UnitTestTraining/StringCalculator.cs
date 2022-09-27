@@ -1,6 +1,6 @@
 ﻿namespace UnitTestTraining
 {
-    public class StringCalculator
+    public static class StringCalculator
     {
         //"//[***]\n1***2***3"
         public static int Add(string number)
